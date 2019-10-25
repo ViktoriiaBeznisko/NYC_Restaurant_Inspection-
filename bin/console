@@ -10,5 +10,10 @@ require "NYC_Restaurant_Inspection"
 # require "pry"
 # Pry.start
 
+
+# def reload!
+#   load = "./bin/nyc_restaurant_inspection"
+# end
+
 require "irb"
 IRB.start(__FILE__)
