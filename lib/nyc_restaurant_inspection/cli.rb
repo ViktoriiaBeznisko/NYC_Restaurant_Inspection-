@@ -12,7 +12,7 @@ class NYCRestaurantInspection::CLI
 
 
   def options
-    @options = NYCRestaurantInspection::Restaurant.inspection
+    @options = NYCRestaurantInspection::Restaurant.insp_results
     # @options.each.with_index(1) do |option, i|
     #   puts "#{i}. #{deal}"
   end
@@ -28,16 +28,17 @@ class NYCRestaurantInspection::CLI
       DOC
       input = gets.strip.downcase
 
-      if input.to_i > 0
-        puts @options[input.to_i-1]
-      elsif input == "list"
-        options
-      # case input
-      #   when "1"
-      #     puts "1"
-      #   when "2"
-      #     puts "2"
-        elsif "exit"
+      # if input.to_i > 0
+      #   puts @options[input.to_i-1]
+      # elsif input == "list"
+      #
+      #   options
+      case input
+        when "1"
+          puts "1"
+        when "2"
+          puts "2"
+        when "exit"
            leave_page
         else
           puts "Meh, not sure what you want..."
