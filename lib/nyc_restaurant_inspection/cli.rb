@@ -2,7 +2,6 @@ class NYCRestaurantInspection::CLI
 
   def call
     puts "Welcome to New York City Restaurant Inspection tracker!"
-
     puts "Do you really want to know Health Inspection result for your favorite restaurant?[y/n]"
       if gets.strip == "y"
         finding_options
@@ -11,8 +10,9 @@ class NYCRestaurantInspection::CLI
       end
   end
 
+
   def list_of_options
-    puts "list_of_options:"
+    @options = NYCRestaurantInspection::Restaurant.all
   end
 
   def finding_options
@@ -29,7 +29,7 @@ class NYCRestaurantInspection::CLI
         when "exit"
           leave_page
         else
-          puts "Not sure what you want, please select from the list or type exit."
+          puts "Meh, not sure what you want..."
         end
       end
   end
