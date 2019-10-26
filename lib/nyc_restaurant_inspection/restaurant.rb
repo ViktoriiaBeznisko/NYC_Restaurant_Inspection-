@@ -25,10 +25,10 @@ class NYCRestaurantInspection::Restaurant
   end
 
   def self.scrape
-    doc1 = Nokogiri::HTML(open("https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j"))
-    doc2 = Nokogiri::XML(open("https://data.cityofnewyork.us/resource/43nn-pn8j.xml"))
+    html_doc = Nokogiri::HTML(open("https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j"))
+    xml_doc = Nokogiri::XML(open("https://data.cityofnewyork.us/resource/43nn-pn8j.xml"))
     #name = doc.search('section.landing-page-section.dataset-preview').text
-    #ttps://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/rs6k-p7g6    -results blank
+        #ttps://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/rs6k-p7g6    -results blank
 
     # table = doc.at('card.card.ng-isolate-scope')
     # table.search('tr').each do |tr|
@@ -45,8 +45,42 @@ class NYCRestaurantInspection::Restaurant
 
 
 
-#name = doc.search('.cell.text').text.strip
+
+
+
+
+
+
+
+#1. CAN WE SCRAPE THIS WITH NOKOGIRI
+#2. CAN WE USE SODA RUBY FOR THIS .  CHECK DODE THERE https://dev.socrata.com/foundry/data.cityofnewyork.us/43nn-pn8j
+#2.2 app token : ZCLZ3ZaGz2QlbjmxE3payBhJr
+
+
+# client = SODA::Client.new({:domain => "data.cityofnewyork.us", :app_token => "YOURAPPTOKENHERE"})
+#
+# results = client.get("43nn-pn8j", :$limit => 5000)
+#
+# puts "Got #{results.count} results. Dumping first results:"
+# results.first.each do |k, v|
+#   puts "#{key}: #{value}"
+# end
+
+
+#3. HOW TO CONNECT...
+
+
 #NYCRestaurantInspection::Restaurant.scrape
+
+
+
+
+
+
+
+
+
+
 
 # rest_1 = self.new
 # rest_1.name = "RICHIE RICH"

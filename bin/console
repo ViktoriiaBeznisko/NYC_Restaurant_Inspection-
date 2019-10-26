@@ -3,7 +3,7 @@
 require "bundler/setup"
 require "nyc_restaurant_inspection"
 
-
+#require 'soda/client'
 
 # (If you use this, don't forget to add pry to your Gemfile!)
 # require "pry"
