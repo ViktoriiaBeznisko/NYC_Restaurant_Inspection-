@@ -1,15 +1,24 @@
 class NYCRestaurantInspection::CLI
 
   def call
-    puts "Welcome to New York City Restaurant Inspection tracker!"
-    puts "Do you really want to know Health Inspection result for your favorite restaurant?[y/n]"
-      if gets.strip == "y"
-        menu
-      else
-        leave_page
-      end
+    welcome
+    list_restaurants
+    menu
+    leave_page
   end
 
+  def welcome
+  puts "Welcome to New York City Restaurant Inspection tracker!"
+  puts "Do you really want to know Health Inspection result for your favorite restaurant?[y/n]"
+    if gets.strip == "y"
+      puts <<-DOC.gsub /^\s*/, ''
+      Please select from the list or type exit:
+      1 Search by name
+      2 Search by zip code
+      3 Search by BORO [Manhattan/Brooklyn/Bronx/Queens/Staten Island]
+      DOC
+    end
+  end
 
   def list_restaurants
     @restaurants = NYCRestaurantInspection::Restaurant.insp_results
@@ -21,29 +30,21 @@ class NYCRestaurantInspection::CLI
   def menu
     input = nil
     while input != "exit"
-      puts <<-DOC.gsub /^\s*/, ''
-        Please select from the list or type exit:
-        1. Search by name
-        2. Search by zip code
-        3. Search by BORO [Manhattan/Brooklyn/Bronx/Queens/Staten Island]
-      DOC
+    #inspextion results
       input = gets.strip.downcase
 
       if input.to_i > 0
-        puts @restaurants[input.to_i-1]
+        rest_result = @restaurants[input.to_i-1]
+        puts "#{rest_result.name} - #{rest_result.boro} - #{rest_result.zip_code}"
       elsif input == "list"
         list_restaurants
-      # elsif "exit"
-      #   leave_page
       else
         puts "Meh, not sure what you want..."
       end
     end
   end
 
-  def leave_pagey
-
+  def leave_page
     puts "Eat, drink, be healthy! Goodbye!"
   end
-
 end
