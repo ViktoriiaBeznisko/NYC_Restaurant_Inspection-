@@ -11,12 +11,7 @@ class NYCRestaurantInspection::CLI
   puts "Welcome to New York City Restaurant Inspection tracker!"
   puts "Do you really want to know Health Inspection result for your favorite restaurant?[y/n]"
     if gets.strip == "y"
-      puts <<-DOC.gsub /^\s*/, ''
-      Please select from the list or type exit:
-      1 Search by name
-      2 Search by zip code
-      3 Search by BORO [Manhattan/Brooklyn/Bronx/Queens/Staten Island]
-      DOC
+      puts "Menu"
     end
   end
 
@@ -30,7 +25,13 @@ class NYCRestaurantInspection::CLI
   def menu
     input = nil
     while input != "exit"
-    #inspextion results
+
+      puts <<-DOC.gsub /^\s*/, ''
+      Please select from the list or type exit:
+      1 Search by name
+      2 Search by zip code
+      3 Search by BORO [Manhattan/Brooklyn/Bronx/Queens/Staten Island]
+      DOC
       input = gets.strip.downcase
 
       if input.to_i > 0
