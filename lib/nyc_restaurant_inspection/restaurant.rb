@@ -1,6 +1,14 @@
 class NYCRestaurantInspection::Restaurant
 
-  attr_accessor :name, :boro, :zip_code
+  attr_accessor :name, :boro, :zip_code, :violation_description, :critical_flag
+
+
+def initialize(rest_insp_data)
+  @name = rest_insp_data[:name]
+  @boro = rest_insp_data[:boro]
+  @zip_code = rest_insp_data[:violation_description]
+  @critical_flag = rest_insp_data[:critical_flag]
+end
 
   def self.insp_results
       #self.scrape_insp_results
@@ -25,33 +33,10 @@ class NYCRestaurantInspection::Restaurant
   # end
 
 
-  def self.scrape
-   doc2 = Nokogiri::HTML(open("https://www.allrecipes.com/recipes/276/desserts/cakes//"))
+  def list_restaurants
+      @restaurants = NYCRestaurantInspection::API.nyc_data
   end
 
 end
 
 #NYCRestaurantInspection::Restaurant.new.gettind_date
-#html_doc = Nokogiri::HTML(open("https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j"))
-
-# nane1 =  doc.css("h2.list-recipes__h2")
-
-
-# name = doc.search("h2.list-recipes__h2").text
-
-
-
-
-
-
-
-
-
-# rest_1 = self.new
-# rest_1.name = "RICHIE RICH"
-# rest_1.boro = "BRONX"
-# rest_1.zip_code = "10456"
-# rest_1.cousine = "Caribbean"
-# rest_1.insp_date = "12/18/2018"
-# rest_1.critical_flag = "Y"
-# rest_1.violation_desc = "Food not cooled by an approved method whereby the internal product...."
