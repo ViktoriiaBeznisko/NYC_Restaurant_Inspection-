@@ -24,21 +24,20 @@ class NYCRestaurantInspection::Restaurant
   #   insp_results
   # end
 
+
   def self.scrape
-   doc = Nokogiri::HTML(open("https://www.allrecipes.com/"))
-
-
-      binding.pry
-    end
+   doc2 = Nokogiri::HTML(open("https://www.allrecipes.com/recipes/276/desserts/cakes//"))
   end
-#end
 
-#NYCRestaurantInspection::Restaurant.scrape
+end
+
+#NYCRestaurantInspection::Restaurant.new.gettind_date
 #html_doc = Nokogiri::HTML(open("https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j"))
 
-# nane1 = doc.css("h2.list-recipes__h2")
-# name = doc.search("h2.list-recipes__h2").text
+# nane1 =  doc.css("h2.list-recipes__h2")
 
+
+# name = doc.search("h2.list-recipes__h2").text
 
 
 
