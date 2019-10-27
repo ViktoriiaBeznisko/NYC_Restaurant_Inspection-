@@ -1,9 +1,7 @@
 #!/usr/bin/env ruby
 
-#require './lib/nyc_restaurant_inspection'
-
 require "bundler/setup"
 require "nyc_restaurant_inspection"
-
+#require './lib/nyc_restaurant_inspection'
 
 NYCRestaurantInspection::CLI.new.call
