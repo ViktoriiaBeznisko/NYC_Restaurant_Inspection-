@@ -22,7 +22,7 @@ class NYCRestaurantInspection::CLI
   end
 
   def list_restaurants
-    @restaurants = NYCRestaurantInspection::Restaurant.insp_results
+    @restaurants = NYCRestaurantInspection::Restaurant
   #  @restaurants.each.with_index(1) do |restaurant, i|
   #    puts "#{i}. #{restaurant.name} - #{restaurant.boro} - #{restaurant.zip_code}"
   #  end
