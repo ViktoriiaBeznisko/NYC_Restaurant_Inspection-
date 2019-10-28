@@ -25,3 +25,5 @@ class NYCRestaurantInspection::Restaurant
     viol_desc = self.all.select{|vd|vd.name.include?(name)}
   end
 end
+
+№

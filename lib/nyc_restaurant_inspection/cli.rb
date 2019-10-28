@@ -4,7 +4,6 @@ class NYCRestaurantInspection::CLI
     welcome
     list_restaurants
     menu
-    #leave_page
   end
 
   def welcome
@@ -18,7 +17,7 @@ class NYCRestaurantInspection::CLI
       2 Search by zip code
       3 Search by BORO [Manhattan/Brooklyn/Bronx/Queens/Staten Island]
       DOC
-      #need to add/connect with results ...if input
+      #need to add/connection with results ...if input
     end
   end
 
