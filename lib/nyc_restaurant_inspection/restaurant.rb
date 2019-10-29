@@ -2,7 +2,6 @@ class NYCRestaurantInspection::Restaurant
 
   attr_accessor :name, :zip_code, :violation_description, :critical_flag
 
-  #ALLOWED_METHODS = Set[:to_s, :to_i, :upcase, :downcase]
   @@all = []
 
   def initialize(rest_insp_data)
@@ -17,21 +16,21 @@ class NYCRestaurantInspection::Restaurant
     @@all
   end
 
-  def self.get_rest_name
-    self.all.collect{|rest_n| rest_n.name}
-  end
-
-  def self.rest_by_name(name)
-    self.all.collect{|rest_n| rest_n.include?(name)}
-  end
-
-
-  def self.get_zip_code
+  def self.uniq_zip_code
     self.all.collect{|zip| zip.zip_code}.flatten.uniq
   end
 
-  def self.rest_by_zip_code(number)
-    zip_code = self.get_zip_code[number-1]
-    restaurants = self.all.select{|rest|rest.name.include?(zip_code)}
+  def self.rest_by_zip_code(num)
+    zip_code = self.get_zip_code[num-1]
+    restaurants = self.all.collect{|rest|rest.name.include?(zip_code)}
+    restaurants
   end
+
+    # def self.get_rest_name
+    #   self.all.collect{|rest_n| rest_n.name}
+    # end
+    #
+    # def self.rest_by_name(name)
+    #   self.all.collect{|rest_n| rest_n.include?(name)}
+    # end
 end

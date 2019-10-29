@@ -3,58 +3,57 @@ class NYCRestaurantInspection::CLI
   def call
     welcome
     list_restaurants
-    menu
+    #search_by_name
+    #search_by_zip_code
   end
 
   def welcome
-  puts "Welcome to New York City Restaurant Inspection tracker!"
-  puts "Do you really want to know Health Inspection result for your favorite restaurant?[y/n]"
-    if gets.strip == "y"
-      puts <<-DOC
-      Please select from the list or type exit[1/2]:
-      1 Search by name
-      2 Search by zip code
-      DOC
-    if gets.strip == "1"
-      search_by_name
-    elsif gets.strip == "2"
-       search_by_zip_code
+    puts "Welcome to New York City Restaurant Inspection tracker!"
+    puts "Do you really want to know Health Inspection result for your favorite restaurant?[y/n]"
+      input = gets.strip.downcase
+
+      if gets.strip == "y"
+        puts <<-DOC
+        Please select from the list or type exit[1/2]:
+        1 Search by name
+        2 Search by zip code
+        DOC
+      input = gets.strip.downcase
+
+      if gets.strip == "1"   #I have two times get strip ... should I create new methode ?....
+        search_by_name
+      elsif gets.strip == "2"
+        search_by_zip_code
+      elsif gets.strip == "exit"
+        leave_page
+      else
+        puts "Not sure what you want..."
+      end
     end
   end
 
+  def list_restaurants
+    @restaurants = NYCRestaurantInspection::Restaurant.all
+  end
+
   def search_by_name
-    puts "Please type name of the restaurant:"
-    if gets.strip ==
+    input = nil
+    while input != "exit"
+      puts "Please type name of the restaurant:"
+    input = gets.strip.downcase
+    if input.to_i > 0 # how to say if input =  name from array
+    result = @restaurants[input.to_i-1]
+      puts "#{result.name} - #{result.zip_code} - #{result.critical_flag} - #{result.violation_description}"
+    end
   end
 
   def search_by_zip_code
-    puts "Please type zip code:"
-    NYCRestaurantInspection.rest_by_zip_code(number)
-  end
-
-
-  def list_restaurants
-    @restaurants = NYCRestaurantInspection::Restaurant.all
-  #  @restaurants.each.with_index(1) do |restaurant, i|
-  #    puts "#{i}. #{restaurant.name} - #{restaurant.boro} - #{restaurant.zip_code}"
-  #  end
-  end
-
-  def menu
     input = nil
     while input != "exit"
-      input = gets.strip.downcase
-
-      if input.to_i > 0
-        rest_result = @restaurants[input.to_i-1]
-        puts "#{name} - #{zip_code} - #{critical_flag} - #{violation_description}"
-      elsif input == "list"
-        list_restaurants
-      elsif input == "exit"
-        leave_page
-          else
-        puts "Not sure what you want..."
-      end
+      puts "Please type zip code:"
+    input = gets.strip.downcase # how to connect.. if input ...
+      if input == (number) #?????????
+      NYCRestaurantInspection::Restaurant.rest_by_zip_code(number) # how to connect with other results ? shold i initialize ?
     end
   end
 
