@@ -1,10 +1,14 @@
 class NYCRestaurantInspection::API
+include HTTParty
+
+format :json
+base_uri "https://data.cityofnewyork.us/resource/43nn-pn8j"
 
   def self.getting_data
-    data = HTTParty.get("https://data.cityofnewyork.us/resource/43nn-pn8j.json")
+    response = HTTParty.get("https://data.cityofnewyork.us/resource/43nn-pn8j.json")
     binding.pry
 
-    data.each do |inf|
+    response.each do |inf|
       name = inf["dba"]
       zip_code = inf["zip_code"]
       violation_description = inf["violation_description"]

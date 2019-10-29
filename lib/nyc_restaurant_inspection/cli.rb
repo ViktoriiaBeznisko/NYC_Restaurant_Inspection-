@@ -40,10 +40,11 @@ class NYCRestaurantInspection::CLI
     input = nil
     while input != "exit"
       puts "Please type name of the restaurant:"
-    input = gets.strip.downcase
-    if input.to_i > 0 # how to say if input =  name from array
-    result = @restaurants[input.to_i-1]
-      puts "#{result.name} - #{result.zip_code} - #{result.critical_flag} - #{result.violation_description}"
+      input = gets.strip.downcase
+        if input.to_i > 0 # how to say if input =  name from array
+          result = @restaurants[input.to_i-1]
+        puts "#{result.name} - #{result.zip_code} - #{result.critical_flag} - #{result.violation_description}"
+      end
     end
   end
 
@@ -51,13 +52,15 @@ class NYCRestaurantInspection::CLI
     input = nil
     while input != "exit"
       puts "Please type zip code:"
-    input = gets.strip.downcase # how to connect.. if input ...
-      if input == (number) #?????????
-      NYCRestaurantInspection::Restaurant.rest_by_zip_code(number) # how to connect with other results ? shold i initialize ?
+      input = gets.strip.downcase # how to connect.. if input ...
+        if input == (number) #?????????
+        NYCRestaurantInspection::Restaurant.rest_by_zip_code(number) # how to connect with other results ? shold i initialize ?
+      end
     end
   end
 
   def leave_page
     puts "Eat, drink, be healthy! Goodbye!"
   end
+
 end
