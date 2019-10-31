@@ -1,6 +1,6 @@
 class NYCRestaurantInspection::Restaurant
 
-  attr_accessor :name, :zip_code, :violation_description, :critical_flag
+  attr_accessor :name, :zip_code, :violation_description, :grade
 
   @@all = []
 
@@ -8,7 +8,7 @@ class NYCRestaurantInspection::Restaurant
     @name = rest_insp_data[:dba]
     @zip_code = rest_insp_data[:zip_code]
     @violation_description = rest_insp_data[:violation_description]
-    @critical_flag = rest_insp_data[:critical_flag]
+    @grade = rest_insp_data[:grade]
     @@all << self
   end
 
