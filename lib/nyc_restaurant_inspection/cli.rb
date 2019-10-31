@@ -3,7 +3,6 @@ class NYCRestaurantInspection::CLI
   def call
     NYCRestaurantInspection::API.getting_data
     welcome
-    # all_restaurants
     #list_results
     search_by_name
     search_by_zip_code
@@ -34,13 +33,10 @@ class NYCRestaurantInspection::CLI
   end
 
   def search_by_name
-    # input = nil
-    # while input != "exit"
       puts "Please type name of the restaurant:"
       input = gets.strip.downcase
       results =  NYCRestaurantInspection::Restaurant.rest_by_name(input)
       binding.pry
-      #full_results = NYCRestaurantInspection::Restaurant.new(results)]
       list_results(results)
     end
 #  end
@@ -55,12 +51,7 @@ class NYCRestaurantInspection::CLI
     end
 #  end
 
-  # def all_restaurants
-  #   @restaurants = NYCRestaurantInspection::Restaurant.all
-  # end
-
   def list_results(restaurant)
-    #rest_result = @restaurants
     restaurant.each{|rest| puts "#{rest.name} - #{rest.zip_code} - #{rest.violation_description} - #{rest.grade}"}
   end
 
