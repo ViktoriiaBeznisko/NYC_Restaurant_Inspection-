@@ -21,6 +21,11 @@ class NYCRestaurantInspection::Restaurant
   end
 
   def self.rest_by_name(name)
-    self.all.select{|rest_n| rest_n.name.include?(name)}
+    self.all.select{|rest_n| rest_n.name.downcase.include?(name.downcase)}
   end
 end
+
+# NYCRestaurantInspection::Restaurant.rest_by_name("randolph") randolph
+# RANDOLPH
+
+#NYCRestaurantInspection::Restaurant.all.length
