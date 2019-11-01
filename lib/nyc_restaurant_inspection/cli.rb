@@ -53,7 +53,7 @@ class NYCRestaurantInspection::CLI
 #  end
 
   def list_results(restaurant)
-    restaurant.each{|rest| puts "- #{rest.name}","- #{rest.zip_code}","- #{rest.violation_description}","- #{rest.grade}"}
+    restaurant.each{|rest| puts "- #{rest.name}","- #{rest.zipcode}","- #{rest.violation_description}","- #{rest.grade}"}
   end
 
   def leave_page

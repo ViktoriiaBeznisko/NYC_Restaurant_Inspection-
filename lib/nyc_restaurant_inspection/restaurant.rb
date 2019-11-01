@@ -1,12 +1,12 @@
 class NYCRestaurantInspection::Restaurant
 
-  attr_accessor :name, :zip_code, :violation_description, :grade
+  attr_accessor :name, :zipcode, :violation_description, :grade
 
   @@all = []
 
   def initialize(rest_insp_data)
     @name = rest_insp_data[:dba]
-    @zip_code = rest_insp_data[:zip_code]
+    @zipcode = rest_insp_data[:zipcode]
     @violation_description = rest_insp_data[:violation_description]
     @grade = rest_insp_data[:grade]
     @@all << self
@@ -16,8 +16,8 @@ class NYCRestaurantInspection::Restaurant
     @@all
   end
 
-  def self.rest_by_zip_code(zip_code)
-    self.all.select{|rest| rest.zip_code == zip_code}
+  def self.rest_by_zip_code(zipcode)
+    self.all.select{|rest| rest.zipcode == zipcode}
   end
 
   def self.rest_by_name(name)

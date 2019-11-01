@@ -10,15 +10,15 @@ base_uri "https://data.cityofnewyork.us/resource/43nn-pn8j"
 
     response.each do |inf|
       name = inf["dba"]
-      zip_code = inf["zip_code"]
+      zipcode = inf["zipcode"]
       violation_description = inf["violation_description"]
-      critical_flag = inf["critical_flag"]
+      grade = inf["grade"]
 
     rest_insp_data = {
       :dba => name,
-      :zip_code => zip_code,
+      :zipcode => zipcode,
       :violation_description => violation_description,
-      :critical_flag => critical_flag
+      :grade => grade
     }
       NYCRestaurantInspection::Restaurant.new(rest_insp_data)
     end
