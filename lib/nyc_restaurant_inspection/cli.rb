@@ -41,7 +41,9 @@ class NYCRestaurantInspection::CLI
     input = gets.strip.downcase
     results =  NYCRestaurantInspection::Restaurant.rest_by_name(input)
     list_results(results)
-    menu
+    if input != results
+      not_found
+    end
   end
 
   def search_by_zip_code
@@ -49,7 +51,9 @@ class NYCRestaurantInspection::CLI
     input = gets.strip.downcase
     results = NYCRestaurantInspection::Restaurant.rest_by_zip_code(input)
     list_results(results)
-    menu
+    if input != results
+      not_found
+    end
   end
 
   def list_results(restaurant)
