@@ -6,7 +6,7 @@ base_uri "https://data.cityofnewyork.us/resource/43nn-pn8j"
 
   def self.getting_data
     response = HTTParty.get("https://data.cityofnewyork.us/resource/43nn-pn8j.json")
-    binding.pry
+  #  binding.pry
 
     response.each do |inf|
       name = inf["dba"]
