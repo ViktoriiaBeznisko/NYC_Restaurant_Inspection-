@@ -1,29 +1,32 @@
 # NYCRestaurantInspection
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/NYC_Restaurant_Inspection`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
+Welcome to NYC Restaurant Inspection gem! With this gem you can easily check the health inspection results for any restaurants located in NYC:
+- Manhattan
+- Brooklyn
+- Queens
+- Bronx
+- Staten Island
+Moreover, you can see the inspector's report.
+Eat, drink, be healthy! ♥
 ## Installation
 
 Add this line to your application's Gemfile:
-
 ```ruby
 gem 'NYC_Restaurant_Inspection'
 ```
-
 And then execute:
-
     $ bundle
 
 Or install it yourself as:
-
     $ gem install NYC_Restaurant_Inspection
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Be ready to know health inspection result for your favorite restaurant
+2. Select how you want to search (by zip code / by name)
+3. Type a name of the restaurant or zip code
+4. Stay positive! ♥
 
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
