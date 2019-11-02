@@ -41,18 +41,22 @@ class NYCRestaurantInspection::CLI
     input = gets.strip.downcase
     results =  NYCRestaurantInspection::Restaurant.rest_by_name(input)
     list_results(results)
-    if input != results
+    if list_results(results).empty?
       not_found
+    else
+      menu
     end
   end
 
   def search_by_zip_code
     puts "Please type zip code:"
-    input = gets.strip.downcase
+    input = gets.strip
     results = NYCRestaurantInspection::Restaurant.rest_by_zip_code(input)
     list_results(results)
-    if input != results
+    if list_results(results).empty?
       not_found
+    else
+      menu
     end
   end
 
@@ -61,7 +65,7 @@ class NYCRestaurantInspection::CLI
   end
 
   def not_found
-    puts "The search has not given any results"
+    puts "Unfortunately your search has not prodused any results..."
     menu
   end
 
