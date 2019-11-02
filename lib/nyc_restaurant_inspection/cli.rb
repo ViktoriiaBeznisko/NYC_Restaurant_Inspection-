@@ -38,7 +38,7 @@ class NYCRestaurantInspection::CLI
 
   def search_by_name
     puts "Please type name of the restaurant:"
-    input = gets.strip.downcase
+    input = gets.strip #.downcase
     results = NYCRestaurantInspection::Restaurant.rest_by_name(input)
     list_results(results)
     if list_results(results).empty?
