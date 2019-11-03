@@ -2,6 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'pry'
 require "httparty"
+require "colorize"
 
 require_relative "./nyc_restaurant_inspection/version"
 require_relative './nyc_restaurant_inspection/cli'

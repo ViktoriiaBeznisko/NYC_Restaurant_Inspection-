@@ -6,8 +6,8 @@ class NYCRestaurantInspection::CLI
   end
 
   def welcome
-    puts "Welcome to New York City Restaurant Inspection tracker!"
-    puts "Do you really want to know Health Inspection result for your favorite restaurant?[y/n]"
+    puts "Welcome to New York City Restaurant Inspection tracker!".colorize(:color => :black, :background => :yellow)
+    puts "Do you really want to know Health Inspection result for your favorite restaurant?[y/n]".yellow
     input = gets.strip.downcase
     if input == "y"
       menu
@@ -37,7 +37,7 @@ class NYCRestaurantInspection::CLI
   end
 
   def search_by_name
-    puts "Please type name of the restaurant:"
+    puts "Please type name of the restaurant:".yellow
     input = gets.strip
     results = NYCRestaurantInspection::Restaurant.rest_by_name(input)
     list_results(results)
@@ -49,7 +49,7 @@ class NYCRestaurantInspection::CLI
   end
 
   def search_by_zip_code
-    puts "Please type zip code:"
+    puts "Please type zip code:".yellow
     input = gets.strip
     results = NYCRestaurantInspection::Restaurant.rest_by_zip_code(input)
     list_results(results)
@@ -61,15 +61,15 @@ class NYCRestaurantInspection::CLI
   end
 
   def list_results(restaurant)
-    restaurant.each{|rest| puts "- Restaurant name: #{rest.name}","- Zip Code: #{rest.zipcode}","- Inspectors Report: #{rest.violation_description}","- Grade: #{rest.grade}", ""}
+    restaurant.each{|rest| puts "- Restaurant name: #{rest.name}".green,"- Zip Code: #{rest.zipcode}","- Inspectors Report: #{rest.violation_description}","- Grade: #{rest.grade}", ""}
   end
 
   def not_found
-    puts "Unfortunately your search has not prodused any results..."
+    puts "Unfortunately your search has not prodused any results...".red
     menu
   end
 
   def leave_page
-    puts "Eat, drink, be healthy! Goodbye!"
+    puts "Eat, drink, be healthy! Goodbye!".colorize(:color => :black, :background => :yellow)
   end
 end
