@@ -61,7 +61,7 @@ class NYCRestaurantInspection::CLI
   end
 
   def list_results(restaurant)
-    restaurant.each{|rest| puts "- Restaurant name: #{rest.name}".green,"- Zip Code: #{rest.zipcode}","- Inspectors Report: #{rest.violation_description}","- Grade: #{rest.grade}", ""}
+    restaurant.each{|rest| puts "- Restaurant name: #{rest.name}".green,"- Zip Code: #{rest.zipcode}","- Inspectors Report: #{rest.violation_description}","- Critical Flag (yes/no): #{rest.critical_flag}", ""}
   end
 
   def not_found

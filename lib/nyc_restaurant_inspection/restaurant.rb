@@ -1,6 +1,6 @@
 class NYCRestaurantInspection::Restaurant
 
-  attr_accessor :name, :zipcode, :violation_description, :grade
+  attr_accessor :name, :zipcode, :violation_description, :critical_flag
 
   @@all = []
 
@@ -10,7 +10,7 @@ class NYCRestaurantInspection::Restaurant
     @zipcode = rest_insp_data[:zipcode]
     @zipcode = "Zip code is not exist" unless @zipcode
     @violation_description = rest_insp_data[:violation_description]
-    @grade = rest_insp_data[:grade]
+    @critical_flag = rest_insp_data[:critical_flag]
     @@all << self
   end
 
